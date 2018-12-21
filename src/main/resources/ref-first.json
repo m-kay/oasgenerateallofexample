@@ -1,0 +1,43 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Code Generation with allOf",
+    "description": "Sample to test code generation with allOf.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.example.com"
+    }
+  ],
+  "paths": {
+  },
+  "components": {
+    "schemas": {
+      "Parent": {
+        "type": "object",
+        "properties": {
+          "sharedProperty": {
+            "type": "string"
+          }
+        }
+      },
+      "Child": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Parent"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "property": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+}
